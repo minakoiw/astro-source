@@ -1,0 +1,77 @@
+---
+// Component Imports
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+// Data Fetching: List all Markdown posts in the repo.
+const projects = await Astro.glob('./project/**/*.md');
+const featuredProject = projects[0];
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<MainHead
+			title="Minako Williams, painter"
+			description="Minako Williams, painter"
+		/>
+		<style>
+			body {
+				background: url(assets/background.jpg) center top repeat-y;
+				height: 100%;
+			}
+			.wrapper {
+				margin-top: 2em;
+				margin-bottom: 2em;
+			}
+			@media (min-width: 750px) {
+				.overlay {
+					padding-left: 4rem;
+				}
+			}
+
+
+			.sectionTitle {
+				font-weight: 700;
+				font-size: var(--f-u8);
+				margin-top: 4rem;
+				margin-bottom: 2rem;
+			}
+
+			.tagline {
+				text-align: center;
+				font-size: calc(1vw + 1vh + 3vmin);
+				margin:3em .5em;
+				font-weight: 700;
+				text-shadow: 3px 3px rgba(255,255,255,0.3), -3px -3px rgba(255,255,255,0.4);
+				line-height: 130%;
+			}
+
+			@media (min-width: 1200px) {
+				.tagline {
+					margin: 3em 4em;
+				}
+			}
+
+			@media (min-width: 800px) {
+				.tagline {
+					margin: 3em 2em;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<main class="wrapper">
+			<div class="section">
+				<p class="tagline">
+					&ldquo;What infinite possibilities can we discover or manifest as real as life itself?&rdquo;
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

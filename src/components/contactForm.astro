@@ -1,0 +1,56 @@
+---
+
+---
+<style>
+  h2 {
+    text-transform: uppercase;
+  }
+  .formGroup {
+    margin: 0 0 1em 2em;
+  }
+  .labelStyle {
+    display:block;
+    font-size: 1.2em;
+  }
+  input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 2em;
+  }
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 2em;
+  }
+  .btnGroup {
+    text-align: center;
+  }
+  button {
+    padding: 1em;
+    background-color: rosybrown;
+    border: 1px solid rosybrown;
+    border-radius: 8px;
+    font-size: 1.2em;
+    margin-left: 4em;
+  }
+</style>
+<h2>Leave a Message</h2>
+<form>
+  <div class="formGroup">
+    <label class="labelStyle" for="name">Your Name:</label>
+    <input id="name" type="text" />
+  </div>
+  <div class="formGroup">
+    <label class="labelStyle" for="email">Your Email:</label>
+    <input type="text" id="email" />
+  </div>
+  <div class="formGroup">
+    <label class="labelStyle" for="message">Message:</label>
+    <textarea id="message" rows="7" />
+  </div>
+  <div class="btnGroup">
+    <button type='submit'>Send Message</button>
+  </div>
+</form>

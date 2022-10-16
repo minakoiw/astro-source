@@ -1,0 +1,62 @@
+---
+// Component Imports
+import DefaultLayout from  '../layouts/defaultLayout.astro'; 
+
+// Data Fetching: List all Markdown posts in the repo.
+const mdExhibitions = await Astro.glob('../mdExhibitions/*.md');
+const exhibitions = mdExhibitions.sort((exhibitA, exhibitB) =>(Date.parse(exhibitA.frontmatter.date) - Date.parse(exhibitB.frontmatter.date)));
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+const content = {
+  title: "Minako's Exhibitions",
+  description: 'Exhibitions',
+  lang: 'en'
+};
+---
+<style>
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 2em;
+  }
+  .title {
+    font-size: 1.3em;
+    text-decoration: underline;
+  }
+  .address { 
+    font-size: 1.3em;
+  }
+  .content {
+    margin-left: 1em;
+  }
+  li :global(a) {
+    color: darkblue;
+  }
+  li :global(a:hover) {
+    color: darkolivegreen;
+  }
+</style>
+
+<DefaultLayout content={content}>
+  <h1>Exhibitions</h1>
+  <ul>
+  {exhibitions.map((exhibit, i) => {
+    const { frontmatter} = exhibit;
+    const Content = exhibit.Content;
+    return (
+      <li>
+        <div class="title">{frontmatter.title}</div>
+        <div class="address">{frontmatter.locationName}, { frontmatter.address1}, {frontmatter.city} {frontmatter.state} {frontmatter.zip}</div> 
+        <div class="content">
+          <Content />
+        </div>
+      </li>
+    );
+    })
+  }
+  </ul>
+</DefaultLayout>

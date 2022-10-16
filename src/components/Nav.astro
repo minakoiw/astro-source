@@ -1,0 +1,47 @@
+<nav>
+	<a class="link" href="/">
+		<div class="monogram">Minako Williams</div>
+	</a>
+	<a class="link" href="/about"> About</a>
+	<a class="link" href="/portfolio"> Portfolio</a>
+	<a href="/cv" class="link"> CV</a>
+	<a href="/exhibitions" class="link"> Exhibitions</a>
+	<a href="/contact" class="link"> Contact</a>
+</nav>
+
+<style>
+	nav {
+		display: flex;
+		column-gap: 1em;
+		align-items: flex-start;
+		padding: 0 1em;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+	}
+
+	.link {
+		display: block;
+		text-decoration: none;
+		font-size: calc(1vw + 1vh + .9vmin);
+		color: black;
+	}
+
+	.link:first-child {
+		margin-right: auto;	
+	}
+
+	.link:hover,
+	.link:focus {
+		text-decoration: underline;
+	}
+
+	.monogram {
+		margin-top: .5em;
+		/* margin-right: 0.5rem; */
+		font-weight: 900;
+		font-size: calc(1vw + 1vh + 3vmin);
+	}
+
+
+
+</style>

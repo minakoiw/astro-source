@@ -1,0 +1,38 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+
+const { content } = Astro.props;
+const backgroundClass = content.backgroundClass || '';
+---
+
+<html lang={content.lang || 'en'}>
+	<head>
+		<MainHead title={content.title} description={content.description} />
+		<style>
+			body {
+				background: url(assets/background.jpg) center top repeat-y;
+				height: 100%;
+			}
+			body.plain {
+				background: rgb(207,226,243);
+			}
+      .wrapper {
+        margin:1em;
+      }
+			article :global(h1) {
+				text-align: center;;
+			}
+		</style>
+	</head>
+	<body class={backgroundClass}>
+		<Nav />
+		<main class="wrapper">
+			<article>
+				<slot />
+			</article>
+    </main>
+		<Footer />
+	</body>
+</html>
