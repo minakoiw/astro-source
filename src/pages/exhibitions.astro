@@ -4,7 +4,7 @@ import DefaultLayout from  '../layouts/defaultLayout.astro';
 
 // Data Fetching: List all Markdown posts in the repo.
 const mdExhibitions = await Astro.glob('../mdExhibitions/*.md');
-const exhibitions = mdExhibitions.sort((exhibitA, exhibitB) =>(Date.parse(exhibitA.frontmatter.date) - Date.parse(exhibitB.frontmatter.date)));
+const exhibitions = mdExhibitions.sort((exhibitA, exhibitB) =>(Date.parse(exhibitB.frontmatter.date) - Date.parse(exhibitA.frontmatter.date)));
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
