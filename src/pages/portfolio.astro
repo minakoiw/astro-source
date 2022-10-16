@@ -4,7 +4,7 @@ import { dateString } from '../components/dates';
 
 // Data Fetching: List all Markdown posts in the repo.
 const mdPortfolioList = await Astro.glob('../mdPortfolio/*.md');
-const portfolioList = mdPortfolioList.sort((a, b) =>(Date.parse(a.frontmatter.date) - Date.parse(b.frontmatter.date)));
+const portfolioList = mdPortfolioList.sort((a, b) =>(Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date)));
 
 const content = {
   title: "Minako's Portfolio",
