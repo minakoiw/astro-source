@@ -1,0 +1,29 @@
+---
+
+---
+<script is:inline>
+  const fontClasses = ['fontGH', 'fontFB', 'fontKS'];
+  const setBodyClass = (strClass) => {
+    const body = document.querySelector('body');
+    body.classList.remove(...fontClasses);
+    body.classList.add(strClass);
+  }
+</script>
+<style>
+  div {
+    margin-top: 2em;
+  }
+  button {
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: azure;
+    margin:0 8px;
+  }
+</style>
+
+<div>
+  <button onclick="setBodyClass('fontGH')">Gloria Hallelujah</button>
+  <button onclick="setBodyClass('fontFB')">Fuzzy Bubbles</button>
+  <button onclick="setBodyClass('fontKS')">Kaushan Script</button>
+</div>

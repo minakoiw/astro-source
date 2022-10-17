@@ -1,6 +1,8 @@
-# Website for Minako Williams
+# A Portfolio Website for Minako Williams
 
-Built using Astro JS
+This website was built using Astro JS
+
+
 
 ##  Commands
 

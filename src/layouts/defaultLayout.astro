@@ -4,6 +4,8 @@ import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 
 const { content } = Astro.props;
+
+// content.backgroundClass is often null, but can include a class name
 const backgroundClass = content.backgroundClass || '';
 ---
 
@@ -14,6 +16,7 @@ const backgroundClass = content.backgroundClass || '';
 			body {
 				background: url(/assets/background.jpg) center top repeat-y;
 				height: 100%;
+				font-family: 'Gloria Hallelujah', Arial, Helvetica, sans-serif;
 			}
 			body.plain {
 				background: rgb(207,226,243);
