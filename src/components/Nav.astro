@@ -1,8 +1,8 @@
 <nav>
-	<a class="link" href="/">
+	<a class="link brand" href="/">
 		<div class="monogram">Minako Williams</div>
 	</a>
-	<a class="link" href="/about"> About</a>
+	<a class="link about" href="/about"> About</a>
 	<a class="link" href="/portfolio"> Portfolio</a>
 	<a href="/cv" class="link"> CV</a>
 	<a href="/exhibitions" class="link"> Exhibitions</a>
@@ -22,12 +22,16 @@
 	.link {
 		display: block;
 		text-decoration: none;
-		font-size: calc(1vw + 1vh + .9vmin);
+		font-size: calc(1vw + 1vh + .70vmin);
 		color: black;
 	}
 
-	.link:first-child {
-		margin-right: auto;	
+	.link.brand {
+		padding: 0;
+	}
+
+	.link.about {
+		margin-left: auto;	
 	}
 
 	.link:hover,
@@ -39,7 +43,14 @@
 		margin-top: .5em;
 		/* margin-right: 0.5rem; */
 		font-weight: 900;
-		font-size: calc(1vw + 1vh + 3vmin);
+		font-size: calc(1vw + 1vh + 2.75vmin);
+	}
+
+	@media (max-width: 930px) {
+		.monogram {
+			max-width: 4em;
+			line-height: 1.2em
+		}
 	}
 
 
