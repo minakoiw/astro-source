@@ -7,7 +7,7 @@ const mdPortfolioList = await Astro.glob('../mdPortfolio/*.md');
 const portfolioList = mdPortfolioList.sort((a, b) =>(Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date)));
 
 const content = {
-  title: "Minako's Portfolio",
+  title: "Minako Williams' Portfolio",
   description: 'Portfolio for Minako Williams',
   lang: 'en',
 	backgroundClass: 'plain'
@@ -28,14 +28,17 @@ const content = {
 	.item {
 		text-align:center;
 		margin-bottom: 2em;
-		max-width: 405px;
+		width: 400px;
+		height: 540px;
+		display: flex;
+		align-items: center;
 	}
 
 
 	img {
 		object-fit: contain;
 		width: 400px;
-		height: 400px;
+		max-height: 400px;
 	}
 
 	h2 {
@@ -56,12 +59,14 @@ const content = {
 		{portfolioList.map(item => {
 			return (
 				<div class="item">
+					<div class="inner">
 					<img src={item.frontmatter.imgUrl} alt={item.frontmatter.title}>
 					<h2>{item.frontmatter.title}</h2>
 					<p>{item.frontmatter.materials}</p>
-					<p>{ item.frontmatter.dimensions}</p>
+					<p>{item.frontmatter.dimensions}</p>
 					<p>{dateString(item.frontmatter.date)}</p>
 				</div>
+			</div>
 			)
 		})}
 	</div>
