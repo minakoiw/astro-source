@@ -1,0 +1,43 @@
+---
+import DefaultLayout from  '../layouts/defaultLayout.astro'; 
+
+const content = {
+  backgroundClass: ''
+}
+---
+<style>
+.cvContent {
+  text-align: center;
+}
+
+.cvContent :global(h1) {
+  margin-bottom: 0;
+  line-height: 100%;
+}
+
+.cvContent .subHead {
+  margin-bottom: 2em;
+  font-size: 1.3em;
+}
+
+img {
+  width: 80%;
+  max-width:800px;
+}
+
+@media (min-width:500px) {
+  img {
+    width: 100%;
+  }
+}
+</style>
+
+<DefaultLayout content={content}>
+  <div class="cvContent">
+    <h1>Curriculum Vitae</h1>
+    <div class="subHead">Click on image below to download the PDF</div>
+    <a href="/assets/MWilliams-CV.pdf">
+      <img src="/assets/MW-CV.jpg" alt="Curriculum Vitae for Minako Williams">
+    </a>
+  </div>
+</DefaultLayout>

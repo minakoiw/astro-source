@@ -5,8 +5,10 @@ import Nav from '../components/Nav.astro';
 
 const { content } = Astro.props;
 
+if (!content.backgroundClass) content.backgroundClass = '';
+
 // content.backgroundClass is often null, but can include a class name
-const backgroundClass = content.backgroundClass || '';
+const backgroundClass = (!content && content.backgroundClass) || '';
 ---
 
 <html lang={content.lang || 'en'}>
