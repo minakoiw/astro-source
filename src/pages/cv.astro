@@ -4,40 +4,70 @@ import DefaultLayout from  '../layouts/defaultLayout.astro';
 const content = {
   backgroundClass: ''
 }
+
+// Data Fetching: List all Markdown posts in the repo.
+const mdExhibitions = await Astro.glob('../mdExhibitions/*.md');
+const exhibitions = mdExhibitions.sort((exhibitA, exhibitB) =>(Date.parse(exhibitB.frontmatter.date) - Date.parse(exhibitA.frontmatter.date)));
+
 ---
 <style>
 .cvContent {
-  text-align: center;
+  max-width:70em;
+  margin: auto;
 }
-
-.cvContent :global(h1) {
+.cvContent h1 {
   margin-bottom: 0;
   line-height: 100%;
 }
 
-.cvContent .subHead {
-  margin-bottom: 2em;
-  font-size: 1.3em;
+.exhibit-content :global(ul) {
+  list-style: none;
+  padding: 0 0 0 0;
+  line-height: 1.6em;
 }
 
-img {
-  width: 80%;
-  max-width:800px;
+.exhibit-content :global(a) {
+  color: rgb(0, 0, 120);
 }
 
-@media (min-width:500px) {
-  img {
-    width: 100%;
-  }
+h4 {
+  margin-bottom: 0;
+  text-decoration: underline;
+}
+
+.address {
+  font-weight: 700;
+}
+span.date {
+  font-weight: 700;
+  margin-right: 1em;
 }
 </style>
 
 <DefaultLayout content={content}>
   <div class="cvContent">
     <h1>Curriculum Vitae</h1>
-    <div class="subHead">Click on image below to download the PDF</div>
-    <a href="/assets/MWilliams-CV.pdf">
-      <img src="/assets/MW-CV.jpg" alt="Curriculum Vitae for Minako Williams">
-    </a>
+    <h2>Education</h2>
+    <p><strong>BFA (expected May 2023)</strong>, Pacific Northwest College of Art, Portland, OR</p>
+    <h2>Exhibitions</h2>
+    <ul>
+      {
+      exhibitions.map((exhibit, i) => {
+        const { frontmatter} = exhibit;
+        const Content = exhibit.Content;
+        return (
+          <li>
+            <h4>{frontmatter.title}</h4>
+            <div class="address">{frontmatter.locationName}, { frontmatter.address1}, {frontmatter.city} {frontmatter.state} {frontmatter.zip}</div> 
+            <div class="exhibit-content">
+              <Content />
+            </div>
+          </li>
+        );
+        })
+      }
+    </ul>
+    <h2>Work Experience</h2>
+    <p><span class="date">January 2023</span> Temp Exhibition Service Associate at Portland Art Museum, Portland, OR</p>
   </div>
 </DefaultLayout>

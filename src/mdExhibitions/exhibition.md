@@ -8,6 +8,5 @@ zip: "97209"
 date: "2022-07-9"
 ---
 
-[https://events.scenethink.com/home-art-exhibition-jul-9-2022](https://events.scenethink.com/home-art-exhibition-jul-9-2022)
-
-[https://variablewest.com/event/home/](https://variablewest.com/event/home/)
+* [https://events.scenethink.com/home-art-exhibition-jul-9-2022](https://events.scenethink.com/home-art-exhibition-jul-9-2022)
+* [https://variablewest.com/event/home/](https://variablewest.com/event/home/)
