@@ -1,12 +1,15 @@
+---
+const path = Astro.url.pathname.replace('/', '');
+---
 <nav>
 	<a class="link brand" href="/">
 		<div class="monogram">Minako Williams</div>
 	</a>
 	<div class="pagelinks">
-		<a class="link about" href="/about">About</a>
-		<a class="link" href="/portfolio">Portfolio</a>
-		<a href="/cv" class="link">CV</a>
-		<a href="/contact" class="link">Contact</a>
+		<a class:list={["link", {selected: path==="about"}]} href="/about">About</a>
+		<a class:list={["link", {selected: path==="portfolio"}]} href="/portfolio">Portfolio</a>
+		<a class:list={["link", {selected: path==="cv"}]} href="/cv">CV</a>
+		<a class:list={["link", {selected: path==="contact"}]} href="/contact">Contact</a>
 	</div>
 </nav>
 
@@ -30,6 +33,9 @@
 		padding: 0;
 		margin-right: auto;
 	}
+	.link.selected {
+		font-weight: 700;
+	}
 
 	.link:hover,
 	.link:focus {
@@ -38,7 +44,6 @@
 
 	.monogram {
 		margin-top: .5em;
-		/* margin-right: 0.5rem; */
 		font-weight: 900;
 		font-size: calc(1vw + 1vh + 2.75vmin);
 	}
